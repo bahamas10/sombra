@@ -21,7 +21,7 @@ cat skull.txt | tr SOMBR@ '     '
 hr
 
 echo skull with SOMBR@ removed
-cat skull.txt |  tr -d SOMBR@
+cat skull.txt | tr -d SOMBR@
 hr
 
 echo skull without white spaces or SOMBR@
@@ -35,3 +35,13 @@ hr
 echo skull without whitespace, newlines, SOMBR@, or non-alphanumeric characters
 cat skull.txt | tr -d ' ' | tr -d '\n' | tr -d SOMBR@ | tr -cd '[[:alpha:]]'; echo
 hr
+
+echo skull without SOMBR@ removed
+cat skull.txt | sed -e 's/[^SOMBR@]/ /g'
+hr
+
+echo frequency count of unique letters
+echo '(<frequenc> <character>)'
+cat skull.txt | fold -w1 | sort | uniq -c | sort -n
+hr
+
