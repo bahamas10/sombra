@@ -45,3 +45,7 @@ echo '(<frequenc> <character>)'
 cat skull.txt | fold -w1 | sort | uniq -c | sort -n
 hr
 
+echo skull with OMB@ replaced with spaces
+cat skull.txt | tr OMB@ '   '
+hr
+

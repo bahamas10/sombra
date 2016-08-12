@@ -11,6 +11,7 @@ How To
 Links
 -----
 
+- https://gist.github.com/bahamas10/852c4dbdfeab92691f8f03eb98cf88f1
 - http://wiki.gamedetectives.net/index.php?title=Sombra_ARG
 
 Example
