@@ -11,6 +11,8 @@ It was discovered that the picture had appeared to have been "Data Moshed".  Bas
 were modified in the picture.  Comparing the modified bytes to those found in
 the original (the byte-by-byte difference) revealed a message.
 
+![moshed](assets/dorado-screenshot-004.jpg)
+
 Using the `diff-mosh` tool in the [tools](../tools) directory of this repository, we can easily spot
 the message.
 
