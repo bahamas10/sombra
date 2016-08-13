@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+/*
+ * convert hex to qr code
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var hex = fs.readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+
+function h2b(h) {
+  return parseInt(h, '16').toString(2);
+}
+
+function lpad(s, i, c) {
+  while (s.length < i)
+    s = c + s;
+  return s;
+}
+
+function colorize(s) {
+  return s
+    .replace(/1/g, '\x1b[47m  \x1b[0m')
+    .replace(/0/g, '  ');
+}
+
+var bin = [];
+hex.forEach(function (line) {
+  line.split('-').forEach(function(h, i) {
+    var b = lpad(h2b(h), 13, '0');
+    bin.push(b);
+  });
+});
+
+var newlines = [];
+for (var i = 0; i < 3; i++) {
+  for (var j = 0; j < 12; j++) {
+    newlines.push(bin[(i*32) + j] + bin[(i*32) + j + 12] + bin [(i*32)+j+12+12]);
+  }
+}
+
+console.log(colorize(newlines.join('\n')));
+
+return;
+
+var col = 3;
+
+var n = Math.floor(foo.length / col);
+var newlines = [];
+
+foo.forEach(function (line, i) {
+  var key = Math.floor(i / n);
+  newlines[key] = newlines[key] || [];
+  newlines[key].push(line);
+});
+
+for (var i = 0; i < newlines[0].length; i++) {
+  var line = [];
+  for (var j = 0; j < n; j++) {
+    var l = newlines[j];
+    if (l)
+      line.push(l[i]);
+  }
+  console.log(colorize(line.join('')));
+}

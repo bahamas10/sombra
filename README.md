@@ -11,9 +11,9 @@ The goal here is to verify ALL clues found in the ARG in such a way that:
 Clues
 -----
 
-1. [Ana Origin Video](00-ana-origin-video)
-2. [Dev Update Video](01-dev-update-video)
-3. [Summer Games Video](01-summer-games-video)
+1. [Ana Origin Video](00-ana-origin-video) - Solved / Verified
+2. [Dev Update Video](01-dev-update-video) - Solved / Unverified
+3. [Summer Games Video](02-summer-games-video) - Unsolved
 
 References
 ----------
