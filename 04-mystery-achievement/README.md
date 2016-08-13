@@ -47,7 +47,7 @@ the Overwatch media page, much like the original Dorado data mosh.
 
 Using the same `diff-mosh` tool, we can extract the data:
 
-        $ ../tools/diff-mosh assets/volskaya-screenshot-004.jpg assets/5552E494-78B3-4CE9-ACF6-EF8208F913CF.jpg
+    $ ../tools/diff-mosh assets/volskaya-screenshot-004.jpg assets/5552E494-78B3-4CE9-ACF6-EF8208F913CF.jpg
     1549 differences
     Original Diff: Parece que te gustan estos jueguitos... por que no jugamos uno de verdad?
                                :PB@Bk:                                                ,jB@@B@B@B@BBL.                                         7G@B@B@BMMMMMB@B@B@Nr                                  :kB@B@@@MMOMOMOMOMMMM@B@B@B1,                          :5@B@B@B@BBMMOMOMOMOMOMOMM@@@B@B@BBu.                   70@@@B@B@B@BXBBOMOMOMOMOMOMMBMPB@B@B@B@B@Nr              G@@@BJ iB@B@@  OBMOMOMOMOMOMOM@2  B@B@B. EB@B@S            @@BM@GJBU.  iSuB@OMOMOMOMOMOMM@OU1:  .kBLM@M@B@            B@MMB@B       7@BBMMOMOMOMOMOBB@:       B@BMM@B            @@@B@B         7@@@MMOMOMOMM@B@:         @@B@B@            @@OLB.          BNB@MMOMOMM@BEB          rBjM@B            @@  @           M  OBOMOMM@q  M          .@  @@            @@OvB           B:u@MMOMOMMBJiB          .BvM@B            @B@B@J         0@B@MMOMOMOMB@B@u         q@@@B@            B@MBB@v       G@@BMMMMMMMMMMMBB@5       F@BMM@B            @BBM@BPNi   LMEB@OMMMM@B@MMOMM@BZM7   rEqB@MBB@            B@@@BM  B@B@B  qBMOMB@B@B@BMOMBL  B@B@B  @B@B@M             J@@@@PB@B@B@B7G@OMBB.   ,@MMM@qLB@B@@@BqB@BBv                 iGB@,i0@M@B@MMO@E  :  M@OMM@@@B@Pii@@N:                       .   B@M@B@MMM@B@B@B@MMM@@@M@B                                  @B@B.i@MBB@B@B@@BM@::B@B@                                  B@@@ .B@B.:@B@ :B@B  @B@O                                    :0 r@B@  B@@ .@B@: P:                                          vMB :@B@ :BO7                                                  ,B@B                           
@@ -57,6 +57,8 @@ Interesting points to note
 
 1. The replaced characters in the mosh are `!` - same as Dorado
 2. There is a newline character after the Spanish sentence, but nowhere else in the data
+
+---
 
 > Parece que te gustan estos jueguitos... por que no jugamos uno de verdad?
 
@@ -73,7 +75,7 @@ we can see that if a newline is added every *59th* character, a skull emerges.
 
     $ ../tools/diff-mosh assets/Volskaya-screenshot-004.jpg assets/5552E494-78B3-4CE9-ACF6-EF8208F913CF.jpg \
         | grep MOMOM | fold -59
-                           :PB@Bk:                         
+                               :PB@Bk:                         
                            ,jB@@B@B@B@BBL.                     
                         7G@B@B@BMMMMMB@B@B@Nr                  
                     :kB@B@@@MMOMOMOMOMMMM@B@B@B1,              
