@@ -51,10 +51,11 @@ see the [assets/](assets) directory).
     $ echo '1920 / 9' | bc
     213
 
-Each barcode will be 213 pixels wide (this isn't quite the case, some are a tiny bit longer than
-others upon closer inspection, but this still works)
+Each barcode *should* be 213 pixels wide, however upon closer inspection, it
+appears some are slightly longer than others.  To compensate, 100px wide shots
+were extracted every 220 pixels.
 
-    for i in {0..8}; do convert -crop "213x1080+$((213*i))x0" ana-frame-3.png "ana-barcode-$i.png"; done
+    for i in {0..8}; do convert -crop "100x1080+$((220*i))x0" ana-frame-3.png "ana-barcode-$i.png"; done
 
 Results
 -------
