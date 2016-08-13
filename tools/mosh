@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+/**
+ * mosh data into other data
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+function usage() {
+  return [
+    'Usage: mosh <message>'
+  ].join('\n');
+}
+
+var original = '/dev/stdin';
+var moshed = '/dev/stdout';
+var offset = process.argv[2];
+var message = process.argv[3];
+var newcharacter = process.argv[4] || '!';
+
+var originalData = fs.readFileSync(original);
+
+var msg = message.split('');
+var c = msg.shift();
+for (var i = offset; i < originalData.length; i++) {
+  if (c === undefined)
+    break; // done
+
+  if (String.fromCharCode(originalData[i]) === c) {
+    originalData[i] = newcharacter.charCodeAt(0);
+    c = msg.shift();
+  }
+}
+
+if (msg.length > 0 && c !== undefined) {
+  console.error('could not fit message in original data');
+  process.exit(1);
+}
+
+process.stdout.write(originalData);

@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+/**
+ * find character differences in 2 files
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+function usage() {
+  return [
+    'Usage: diff-mosh <original-file> <moshed-file>'
+  ].join('\n');
+}
+
+var original = process.argv[2];
+var moshed = process.argv[3];
+
+if (!original || !moshed) {
+  console.error(usage());
+  process.exit(1);
+}
+
+var originalData = fs.readFileSync(original, 'utf8');
+var moshedData = fs.readFileSync(moshed, 'utf8');
+
+if (originalData.length !== moshedData.length) {
+  console.error('original data not the same length as moshed data!');
+  console.error('original: %d', originalData.length);
+  console.error('moshed: %d', moshedData.length);
+}
+
+var originalDiff = [];
+var moshedDiff = [];
+
+var len = Math.min(originalData.length, moshedData.length);
+
+for (var i = 0; i < len; i++) {
+  if (originalData[i] !== moshedData[i]) {
+    originalDiff.push(originalData[i]);
+    moshedDiff.push(moshedData[i]);
+  }
+}
+
+console.log('%d differences', originalDiff.length);
+console.log('Original Diff: %s', originalDiff.join(''));
+console.log('Moshed Diff: %s', moshedDiff.join(''));

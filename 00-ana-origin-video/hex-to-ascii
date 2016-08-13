@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+/**
+ * convert hex to ascii
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var hex = fs.readFileSync('/dev/stdin', 'ascii').trim();
+
+var msg = [];
+hex.split(/\s/).forEach(function (h) {
+  var c = String.fromCharCode(parseInt(h, 16));
+  msg.push(c);
+});
+
+console.log(msg.join(''));
