@@ -20,6 +20,12 @@ References
 
 - http://wiki.gamedetectives.net/index.php?title=Sombra_ARG
 
+Note
+----
+
+I'm not trying to take credit for any of the work done to figure out these
+clues (unless noted explicitly).
+
 License
 -------
 
