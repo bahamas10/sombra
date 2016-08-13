@@ -26,7 +26,8 @@ Note
 ----
 
 I'm not trying to take credit for any of the work done to figure out these
-clues (unless noted explicitly).
+clues (unless noted explicitly) - my goal is to verify all clues, hints, and solutions
+we know.
 
 License
 -------
