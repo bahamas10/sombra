@@ -21,8 +21,14 @@ the message.
     Original Diff: Por que estan mirando al cielo? La respuesta no esta sobre sus cabezas, esta detras de ustedes. A veces, necesitan analizar sus logros previos.
     Moshed Diff: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
 The glitched image had certain bytes swapped for `!` characters, and when those bytes are extracted
-from the original image, that message is revealed.  Translating it we see:
+from the original image, that message is revealed.
+
+> Por que estan mirando al cielo? La respuesta no esta sobre sus cabezas,
+> esta detras de ustedes. A veces, necesitan analizar sus logros previos.
+
+Translating it we see:
 
 > "Why are you looking at the sky? The answer isn't over your heads, it's
 > behind you. Sometimes, you need to analyze your previous achievements."
