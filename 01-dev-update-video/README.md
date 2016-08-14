@@ -147,6 +147,8 @@ made it specifically for this ARG.
 
 ### Scan QR code
 
+When scanned, we get:
+
 > ¿Estuvo eso facilito? Ahora que tengo su atención, déjenme se las pongo más difícil.
 
 translated
