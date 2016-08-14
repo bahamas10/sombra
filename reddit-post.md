@@ -351,9 +351,10 @@ was uploaded on the [Play Overwatch](https://playoverwatch.com/en-us/media/) med
 
 #### Glitched Dorado Picture
 
-It was discovered that the picture had appeared to have been "Data Moshed"; Basically, some bytes
-were modified in the picture.  Comparing the modified bytes to those found in
-the original (the byte-by-byte difference) revealed a message.
+It was discovered that the picture had been "Data Moshed"; Basically, some bytes
+were modified in the original image to create the glitched image.  Comparing
+the modified bytes to those found in the original (a byte-by-byte diff, or
+difference) revealed a message.
 
     $ ../tools/diff-mosh assets/dorado-screenshot-005.jpg assets/dorado-screenshot-004.jpg
     143 differences
@@ -361,7 +362,7 @@ the original (the byte-by-byte difference) revealed a message.
     Moshed Diff: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 The glitched image had certain bytes swapped for `!` characters, and when those
-bytes are extracted from the original image, that message is revealed.
+bytes were extracted from the original image, that message was revealed.
 
 > Por que estan mirando al cielo? La respuesta no esta sobre sus cabezas,
 > esta detras de ustedes. A veces, necesitan analizar sus logros previos.
@@ -453,7 +454,7 @@ Translated becomes
 ### The skull
 
 The lines in the "Original Diff" that have a lot of strings like "MOMOM"
-appears to be ascii art, but the newlines are missing.  Brute forcing it,
+appears to be ascii art, but the newlines are missing.  By arbitrarily guessing,
 we can see that if a newline is added every *59th* character, a skull emerges.
 
 
@@ -485,11 +486,11 @@ we can see that if a newline is added every *59th* character, a skull emerges.
                             vMB :@B@ :BO7                      
                                 ,B@B        
 
-All skull analysis can be seen in this gist so far:
+Some skull analysis can be seen in this gist:
 
 https://gist.github.com/bahamas10/852c4dbdfeab92691f8f03eb98cf88f1
 
-Currently not sure if the skull itself is a puzzle or not.
+Currently, we are not sure if the skull is a puzzle itself or not.
 
 #### Results
 
@@ -506,7 +507,7 @@ Conclusion
 This is where we are now, we have:
 
 1. An encrypted file from the Tracer trail in the summer games video with a missing passphrase
-2. A skull that may or may not be a puzzle in itself
+2. A skull that may or may not itself be a puzzle
 
 I realize there are a lot of technical details in this post, but hopefully it
 can help clear up some information, or at least show that all the clues in this
