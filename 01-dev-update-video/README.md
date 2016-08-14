@@ -66,15 +66,15 @@ http://www.onlinebarcodereader.com/
 
 Using the raw GitHub URLs, this be done easily for the following 9 images
 
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-0.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-1.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-2.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-3.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-4.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-5.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-6.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-7.png
-- https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-8.png
+- [Barcode 0](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-0.png)
+- [Barcode 1](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-1.png)
+- [Barcode 2](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-2.png)
+- [Barcode 3](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-3.png)
+- [Barcode 4](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-4.png)
+- [Barcode 5](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-5.png)
+- [Barcode 6](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-6.png)
+- [Barcode 7](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-7.png)
+- [Barcode 8](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-8.png)
 
 ### Barcodes to hex
 
