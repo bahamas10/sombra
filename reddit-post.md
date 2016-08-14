@@ -225,7 +225,7 @@ Reading the 9 barcodes give us the following hex output (in order)
 The final step is to convert the hex to binary, rearrange it a bit, and make a
 QR code out of it (where 0 is white and 1 is black).
 
-    $ cat hex.txt | ./hex-to-qr
+    $ cat hex.txt | ./hex-to-binary
     1111111011000100101100010000001111111
     1000001000000010110001111010101000001
     1011101010011111100000110100001011101
