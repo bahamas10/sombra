@@ -40,7 +40,7 @@ the steps taken to solve the clues given.
 Clues
 -----
 
-### 1. [Ana Origin Video](https://github.com/bahamas10/sombra/tree/dave-1471116722/00-ana-origin-video)
+### 1. [Ana Origin Video](https://github.com/bahamas10/sombra/tree/master/00-ana-origin-video)
 
 - Status: Solved / Verified
 
@@ -49,8 +49,8 @@ On July 12, 2016, a video for the new Overwatch hero named Ana was released.
 https://www.youtube.com/watch?v=TE0CXgpNxG0
 
 Hex values can be seen in the video at 2 specific time stamps:
-[1:16](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/00-ana-origin-video/assets/Ana_Hex.png) and
-[2:11](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/00-ana-origin-video/assets/Ana_Hex2.png)
+[1:16](https://raw.githubusercontent.com/bahamas10/sombra/master/00-ana-origin-video/assets/Ana_Hex.png) and
+[2:11](https://raw.githubusercontent.com/bahamas10/sombra/master/00-ana-origin-video/assets/Ana_Hex2.png)
 
 Transcribed we get
 
@@ -136,7 +136,7 @@ repeated a number of times, as well as the term `sombra` (uncapitalized).
 
 ---
 
-### 2. [Dev Update Video](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video)
+### 2. [Dev Update Video](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video)
 
 - Status: Solved / Verified
 
@@ -148,10 +148,10 @@ https://www.youtube.com/watch?v=evghkilg2eQ
 At the very end of the video, there flash 4 distinct frames that
 flash and look meaningless at first.  In order of appearance:
 
-- [Frame 1](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/ana-frame-1.png)
-- [Frame 2](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/ana-frame-2.png)
-- [Frame 3](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/ana-frame-3.png)
-- [Frame 4](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/ana-frame-4.png)
+- [Frame 1](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-1.png)
+- [Frame 2](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-2.png)
+- [Frame 3](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-3.png)
+- [Frame 4](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-4.png)
 
 These frames were extracted from the video by downloading the original 1080p
 video from YouTube, and then running the following command to extract all frames
@@ -193,15 +193,15 @@ http://www.onlinebarcodereader.com/
 
 Using the raw GitHub URLs, this be done easily for the following 9 images
 
-- [Barcode 0](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-0.png)
-- [Barcode 1](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-1.png)
-- [Barcode 2](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-2.png)
-- [Barcode 3](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-3.png)
-- [Barcode 4](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-4.png)
-- [Barcode 5](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-5.png)
-- [Barcode 6](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-6.png)
-- [Barcode 7](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-7.png)
-- [Barcode 8](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/ana-barcode-8.png)
+- [Barcode 0](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-0.png)
+- [Barcode 1](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-1.png)
+- [Barcode 2](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-2.png)
+- [Barcode 3](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-3.png)
+- [Barcode 4](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-4.png)
+- [Barcode 5](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-5.png)
+- [Barcode 6](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-6.png)
+- [Barcode 7](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-7.png)
+- [Barcode 8](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-barcode-8.png)
 
 #### Barcodes to hex
 
@@ -263,12 +263,12 @@ QR code out of it (where 0 is white and 1 is black).
     1111111011010001011100101100011001111
 
 Now using the bundled tool `binary-to-qr` we can get a
-[legible QR code](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/terminal-qr.png)
+[legible QR code](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/terminal-qr.png)
 on the terminal, or we can put it in the
 [Binary to QR Code converter](https://bahamas10.github.io/binary-to-qrcode/) I
 made it specifically for this ARG.
 
-[Generated QR Code](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/qr.png)
+[Generated QR Code](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/qr.png)
 
 #### Scan QR code
 
@@ -291,7 +291,7 @@ Things are about to get really tough... we have our work cut out for us
 
 ---
 
-### 3. [Summer Games Video](https://github.com/bahamas10/sombra/blob/dave-1471116722/02-summer-games-video)
+### 3. [Summer Games Video](https://github.com/bahamas10/sombra/blob/master/02-summer-games-video)
 
 - Unsolved
 
@@ -303,7 +303,7 @@ https://www.youtube.com/watch?v=qpcOD9tJM4k
 #### Tracer's Trail
 
 For a single frame at 0:08 into the video, a code is seen in
-[Tracer's trail](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/02-summer-games-video/assets/tracer-trail.jpg)
+[Tracer's trail](https://raw.githubusercontent.com/bahamas10/sombra/master/02-summer-games-video/assets/tracer-trail.jpg)
 
 Transcribed, it is
 
@@ -342,11 +342,11 @@ Purposefully omitted from this post as it doesn't require technical analysis
 
 ---
 
-### 4. [Dorado Screenshot](https://github.com/bahamas10/sombra/tree/dave-1471116722/03-dorado-screenshot)
+### 4. [Dorado Screenshot](https://github.com/bahamas10/sombra/tree/master/03-dorado-screenshot)
 
 - Solved / Verified
 
-A [new screenshot of Dorado](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/03-dorado-screenshot/assets/dorado-screenshot-004.jpg)
+A [new screenshot of Dorado](https://raw.githubusercontent.com/bahamas10/sombra/master/03-dorado-screenshot/assets/dorado-screenshot-004.jpg)
 was uploaded on the [Play Overwatch](https://playoverwatch.com/en-us/media/) media page.
 
 #### Glitched Dorado Picture
@@ -383,7 +383,7 @@ Translating it we see:
 
 ---
 
-### 5. [Mystery Achievement](https://github.com/bahamas10/sombra/tree/dave-1471116722/04-mystery-achievement)
+### 5. [Mystery Achievement](https://github.com/bahamas10/sombra/tree/master/04-mystery-achievement)
 
 - Not Known If Finished / Verified
 
@@ -427,7 +427,7 @@ https://blzgdapipro-a.akamaihd.net/media/screenshot/5552E494-78B3-4CE9-ACF6-EF82
 #### Extracting the hidden data
 
 The original image is a
-[Screenshot of Volskaya](https://github.com/bahamas10/sombra/blob/dave-1471116722/04-mystery-achievement/assets/Volskaya-screenshot-004.jpg?raw=true)
+[Screenshot of Volskaya](https://github.com/bahamas10/sombra/blob/master/04-mystery-achievement/assets/Volskaya-screenshot-004.jpg?raw=true)
 from the Overwatch media page, much like the original Dorado data mosh.
 
 Using the same `diff-mosh` tool, we can extract the data:
