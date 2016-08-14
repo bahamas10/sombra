@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+/**
+ * simple vigenere cipher algorithm
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var passphrase = process.argv[2];
+
+var input = fs.readFileSync('/dev/stdin', 'utf8').trim();
+
+function vigenereDecode(input, passphrase) {
+  var totry = [
+    'abcdefghijklmnopqrstuvwxyz',
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  ];
+
+  var output = input.split('');
+  var i = 0;
+  input.split('').forEach(function (c, j) {
+    totry.forEach(function (list) {
+      var index = list.indexOf(c);
+      if (index < 0)
+        return;
+      var k = passphrase[i % passphrase.length];
+      var augment = list.indexOf(k);
+      index = (index - augment + list.length) % list.length;
+      output[j] = list[index];
+      i++;
+    });
+  });
+
+  return output.join('');
+}
+
+console.log(vigenereDecode(input, passphrase));

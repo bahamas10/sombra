@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+/*
+ * convert hex to binary
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var hex = fs.readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+
+
+function h2b(h) {
+  return parseInt(h, '16').toString(2);
+}
+
+function lpad(s, i, c) {
+  while (s.length < i)
+    s = c + s;
+  return s;
+}
+
+var bin = [];
+// loop each line of hex
+hex.forEach(function (line) {
+  // split on hyphens
+  var spl = line.split('-');
+
+  spl.forEach(function(h, i) {
+    // convert each hex grouping to binary,
+    // pad the left with 0's (16 is max possible representation)
+    var b = lpad(h2b(h), 16, '0');
+
+    bin.push(b);
+  });
+});
+
+var newlines = [];
+var columns = 3;
+// qr code is broken into a 3x3 grid, not sure how we know this
+for (var i = 0; i < columns; i++) {
+
+  // this all works but i can't say why
+  //
+  // i think the 12 and 13 magic numbers have something to do
+  // with the original hex strings.  the first 6 hex strings
+  // have 12 numbers but the last 3 have 13.
+  var max;
+  switch (i) {
+    case 0: max = 12; break;
+    case 1: max = 12; break;
+    case 2: max = 13; break;
+  }
+  for (var j = 0; j < max; j++) {
+    var line = [
+      bin[(i * 12 * columns) + j + (max * 0)],
+      //'|',
+      bin[(i * 12 * columns) + j + (max * 1)],
+      //'|',
+      bin[(i * 12 * columns) + j + (max * 2)]
+    ];
+
+    // the first 2 columns get trimmed to 12
+    // while the 3rd gets trimmed to 13
+    while (line[0].length > 12)
+      line[0] = line[0].substr(1);
+    while (line[1].length > 12)
+      line[1] = line[1].substr(1);
+    while (line[2].length > 13)
+      line[2] = line[2].substr(1);
+
+    newlines.push(line.join(''));
+  }
+  //newlines.push(new Array(38*2).join('-'));
+}
+
+var code = newlines.join('\n');
+console.log(code);
