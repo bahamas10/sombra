@@ -11,8 +11,9 @@ The goal here is to verify ALL clues found in the ARG in such a way that:
 Reddit Post
 -----------
 
-View the [Post on Reddit], as well as the [Raw Markdown](reddit-post.md)
-of the post.
+View the
+[Post on Reddit](https://www.reddit.com/r/Overwatch/comments/4xpdly/sombra_itt_i_explain_reproduce_and_verify_all/),
+as well as the [Raw Markdown](reddit-post.md) of the post.
 
 Clues
 -----
