@@ -12,7 +12,7 @@ Clues
 -----
 
 1. [Ana Origin Video](00-ana-origin-video) - Solved / Verified
-2. [Dev Update Video](01-dev-update-video) - Solved / Unverified
+2. [Dev Update Video](01-dev-update-video) - Solved / Verified
 3. [Summer Games Video](02-summer-games-video) - Unsolved
 4. [Dorado Screenshot](03-dorado-screenshot) - Solved / Verified
 5. [Mystery Achievement](04-mystery-achievement) - Not Known If Finished / Verified
