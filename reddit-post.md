@@ -420,7 +420,7 @@ Using the passphrase `tracertorbjornwinstonsymmetradvamercybastiongenjimccree`
 the data can be deciphered to the following:
 
     $ cat code.txt | ./vigenere-decode tracertorbjornwinstonsymmetradvamercybastiongenjimccree
-    blzgdapiproaakamaihdnetmediascreenshot 5552F494 78U3 4WN9 PQM6 JT8208P913LSjpg
+    blzgdapiproaakamaihdnetmediascreenshot 5552E494 78B3 4CE9 ACF6 EF8208F913CFjpg
 
 Adding slashes, dots, hyphens, etc. this output can be turned into an image URL.
 

@@ -28,6 +28,8 @@ function vigenereDecode(input, passphrase) {
         return;
       var k = passphrase[i % passphrase.length];
       var augment = list.indexOf(k);
+      if (augment < 0)
+        augment = list.indexOf(k.toUpperCase());
       index = (index - augment + list.length) % list.length;
       output[j] = list[index];
       i++;
