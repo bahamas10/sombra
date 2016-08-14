@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+/*
+ * convert binary to qr code
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var code = fs.readFileSync('/dev/stdin', 'utf8').trim();
+
+function colorize(s) {
+  return s
+    .replace(/0/g, '\x1b[47m  \x1b[0m')
+    .replace(/1/g, '\x1b[40m  \x1b[0m');
+}
+
+console.log(colorize(code));

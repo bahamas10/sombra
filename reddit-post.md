@@ -5,37 +5,35 @@ I've been hanging out in the [Game Detectives](https://www.reddit.com/r/gamedete
 Discord for a while now, and have been keeping up pretty closely with
 all of the latest developments.  The [Sombra Game Detectives
 Wiki](http://wiki.gamedetectives.net/index.php?title=Sombra_ARG)
-is incredibly useful for checking the current status of the ARG
+is incredibly useful for checking the current status of the ARG,
 as well as to see all of the clues and hints found with their solutions.
 
 However, there have been a couple of theories that haven't panned out, or have just
-been simply made up, i.e. the "summer games" banner in the game showing a waveform,
-that was falsely converted to DTMF (phone) dial tones and decoded.  Because of this,
-and some of the misinformation being passed around I want to take the time to:
+been simply made up: i.e. the "summer games" banner in the game allegedly
+showing a waveform, that was falsely converted to DTMF (phone) dial tones and
+then decoded.  Because of this and some of the misinformation being passed around I
+want to take the time to:
 
-1. Break down and fully explain everything we know so far
-2. Verify everything we know so far
-3. Show all steps to reproduce all verification steps so others can do it too
+1. Break down and fully explain all of the solutions we have
+2. Reproduce and verify all of the solutions we have
+3. Show all steps to reproduce and verify all of the solutions so others can do it too
 
 A lot of information and tools in this post can also be found in my [Sombra
-GitHub Repository](https://github.com/bahamas10/sombra)... in this repo:
-
-1. All conclusions are reproducible and able to be verified by others
-2. All tools used are open source or freely accessible
-
-You can click the titles of each clue to be taken to a folder on GitHub
-with all of the tools and programs referenced.
+GitHub Repository](https://github.com/bahamas10/sombra).  You can click the
+titles of each clue to be taken to a folder on GitHub with all of the tools and
+programs referenced.
 
 Who Am I?
 ---------
 
 I'm a huge fan of Overwatch and do Software Engineering for a living
 and music recording for fun.  Because of this, I've written a lot of
-code to verify these clues, and I'm working on a new song based on the sky code
-song :D
+code to verify these clues, and am also working on a new song influenced by the
+sky code song :D
 
 **Note**: I'm not trying to take credit for any of the work done to figure out these
-clues; I did *not* initially discover any of these solutions.
+clues; I did *not* initially discover any of these solutions - I'm just recreating
+the steps taken to solve the clues given.
 
 ---
 
@@ -110,14 +108,14 @@ hero added) we see this:
 Notice the following
 
 1. no line breaks
-2. `informacion` has weird data where the accented `"o"` should be - in the original ascii there are 2 characters there.  perhaps my code is faulty here with encoding problems
+2. `informacion` has weird data where the accented `"o"` should be - in the original ascii there are 2 characters there (this *may* be a bug in my code though)
 3. `"."` and `" "` had to be skipped in the cipher
 4. first message ends with `"...somb"` and the second begins with `"ra..."`
 
 Massaging the data by injecting a newline after every occurrence of `"..."` yields
 something slightly easier to see:
 
-    $ cat hex-1\:16.txt hex-2\:11.txt | ./hex-to-ascii | ./xor-cipher 23 | sed -e 's/\.\.\./\.\.\.\n/g'
+    $ cat hex-1\:16.txt hex-2\:11.txt | ./hex-to-ascii | ./xor-cipher 23 | sed -e 's/\.\.\./...\n/g'
     ...
     la que tiene la informaciTU3n; tiene el poder...
     la que tiene la informaciTU3n; tiene el poder...
@@ -148,7 +146,7 @@ was released.
 https://www.youtube.com/watch?v=evghkilg2eQ
 
 At the very end of the video, there flash 4 distinct frames that
-look meaningless at first, in order of appearance:
+flash and look meaningless at first.  In order of appearance:
 
 - [Frame 1](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/ana-frame-1.png)
 - [Frame 2](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/ana-frame-2.png)

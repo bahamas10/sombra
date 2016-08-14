@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * convert hex to qr code
+ * convert hex to binary
  *
  * Author: Dave Eddy <dave@daveeddy.com>
  * Date: August 13, 2016
@@ -20,12 +20,6 @@ function lpad(s, i, c) {
   while (s.length < i)
     s = c + s;
   return s;
-}
-
-function colorize(s) {
-  return s
-    .replace(/0/g, '\x1b[47m  \x1b[0m')
-    .replace(/1/g, '\x1b[40m  \x1b[0m');
 }
 
 var bin = [];
@@ -83,7 +77,4 @@ for (var i = 0; i < columns; i++) {
 }
 
 var code = newlines.join('\n');
-console.log('-binary qr code-');
 console.log(code);
-console.log('-colorized-');
-console.log(colorize(code));

@@ -91,12 +91,12 @@ Reading the 9 barcodes give us the following hex output (in order)
     B6A-BD4-496-324-A2F-3C3-78E-723-634-B9-287-EFA-172
     1B5E-17F9-83D-160-1BFE-1D14-956-318-5F1-6D7-1BC-C24-18CF
 
-### Hex to Binary QR Code
+### Hex to Binary
 
 The final step is to convert the hex to binary, rearrange it a bit, and make a
 QR code out of it (where 0 is white and 1 is black).
 
-    $ cat hex.txt | ./hex-to-qr
+    $ cat hex.txt | ./hex-to-binary
     1111111011000100101100010000001111111
     1000001000000010110001111010101000001
     1011101010011111100000110100001011101
@@ -135,9 +135,13 @@ QR code out of it (where 0 is white and 1 is black).
     1000001011111110111110100110000100100
     1111111011010001011100101100011001111
 
-You can run the command line tool manually to see the code, or put it in a
-[Binary to QR Code converter](https://bahamas10.github.io/binary-to-qrcode/) (I
-made it specifically for this ARG).
+Now using the bundled tool `binary-to-qr` we can get a legible code
+
+![terminal-qr](assets/terminal-qr.png)
+
+Or, put the code in the
+[Binary to QR Code converter](https://bahamas10.github.io/binary-to-qrcode/) I
+made it specifically for this ARG.
 
 ![qr](assets/qr.png)
 
