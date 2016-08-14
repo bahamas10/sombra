@@ -82,52 +82,53 @@ and
     76 20 7E 79 71 78 65 7A 76 74 7E D4 A4 79 2C 20 63 7E 72 79
     72 20 72 7B 20 67 78 73 72 65 2E 2E 2E
 
-#### Convert to ascii
+#### Hex xor and utf-8 conversion
 
-The first thing done was converting them both to ascii from hex.  This means
-each group of hex values were converted to numbers i.e. `2E` becomes `46`, and
-`46` is then represented as an ascii character, which is `"."`.
+To crack this we have to convert each character to ascii first, and
+xor the hex value with 23 (Sombra being the 23rd hero to be released)
+if the character is NOT a `"."` or `" "`.  Then, take the new xor'd value
+and convert the entire collection of numbers to utf-8.
 
-    $ cat hex-1\:16.txt | ./hex-to-ascii
-    ...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...dxzu
-    $ cat hex-2\:11.txt | ./hex-to-ascii
-    ev...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...{v fbr c~ryr {v ~yqxezvt~Ô¤y, c~ryr r{ gxsre...
+The first frame
 
-Notice there are no line breaks or anything, just text all mashed together.
+    $ cat hex-1\:16.txt | ./hex-xor-cipher 23
+    ...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...somb
 
-#### XOR cipher
+The second frame
 
-The next step is to run the ascii through an XOR (pronounced "ex or") cipher.
+    $ cat hex-2\:11.txt | ./hex-xor-cipher 23
+    ra...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...
 
-Using an XOR cipher with the constant 23 (the next Overwatch hero will be the 23rd
-hero added) we see this:
+Both together
 
-    $ cat hex-1\:16.txt | ./hex-to-ascii | ./xor-cipher 23
-    ...la que tiene la informaciTU3n; tiene el poder...la que tiene la informaciTU3n; tiene el poder...la que tiene la informaciTU3n; tiene el poder...la que tiene la informaciTU3n; tiene el poder...somb
-    $ cat hex-2\:11.txt | ./hex-to-ascii | ./xor-cipher 23
-    ra...la que tiene la informaciTU3n; tiene el poder...la que tiene la informaciTU3n; tiene el poder...la que tiene la informaciTU3n; tiene el poder...la que tiene la informaciTU3n; tiene el poder...
+    $ cat hex-1\:16.txt hex-2\:11.txt | ./hex-xor-cipher 23
+    ...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...sombra...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...la que tiene la información; tiene el poder...
 
 Notice the following
 
 1. no line breaks
-2. `informacion` has weird data where the accented `"o"` should be - in the original ascii there are 2 characters there (this *may* be a bug in my code though)
-3. `"."` and `" "` had to be skipped in the cipher
-4. first message ends with `"...somb"` and the second begins with `"ra..."`
+2. `"."` and `" "` had to be skipped in the cipher
+3. first message ends with `"...somb"` and the second begins with `"ra..."`
+
+#### Results
+
+We have the translated phrase "She who has the information, has the power..."
+repeated a number of times, as well as the term `sombra` (uncapitalized).
 
 Massaging the data by injecting a newline after every occurrence of `"..."` yields
 something slightly easier to see:
 
-    $ cat hex-1\:16.txt hex-2\:11.txt | ./hex-to-ascii | ./xor-cipher 23 | sed -e 's/\.\.\./...\n/g'
+    $ cat hex-1\:16.txt hex-2\:11.txt | ./hex-xor-cipher 23 | sed -e 's/\.\.\./...\n/g'
     ...
-    la que tiene la informaciTU3n; tiene el poder...
-    la que tiene la informaciTU3n; tiene el poder...
-    la que tiene la informaciTU3n; tiene el poder...
-    la que tiene la informaciTU3n; tiene el poder...
+    la que tiene la información; tiene el poder...
+    la que tiene la información; tiene el poder...
+    la que tiene la información; tiene el poder...
+    la que tiene la información; tiene el poder...
     sombra...
-    la que tiene la informaciTU3n; tiene el poder...
-    la que tiene la informaciTU3n; tiene el poder...
-    la que tiene la informaciTU3n; tiene el poder...
-    la que tiene la informaciTU3n; tiene el poder...
+    la que tiene la información; tiene el poder...
+    la que tiene la información; tiene el poder...
+    la que tiene la información; tiene el poder...
+    la que tiene la información; tiene el poder...
 
 We have the translated phrase "She who has the information, has the power..."
 repeated a number of times, as well as the term `sombra` (uncapitalized).
@@ -135,6 +136,7 @@ repeated a number of times, as well as the term `sombra` (uncapitalized).
 #### References
 
 - http://wiki.gamedetectives.net/index.php?title=Sombra_ARG#Ana_Origin_Video
+- https://www.reddit.com/r/Overwatch/comments/4xpdly/sombra_itt_i_explain_reproduce_and_verify_all/d6hhm4d
 
 ---
 

@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+/**
+ * basic XOR cipher for hex values
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 13, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var xor = +process.argv[2] || 23;
+
+var hex = fs.readFileSync('/dev/stdin', 'ascii').trim();
+
+var msg = [];
+hex.split(/\s/).map(function (h) {
+  return parseInt(h, 16);
+}).forEach(function (h) {
+  var c = String.fromCharCode(h);
+  var b = new Buffer(1);
+
+  switch (c) {
+    case ' ':
+    case '.':
+      // don't XOR spaces or periods
+      b[0] = h;
+      break;
+    default:
+      b[0] = h ^ xor;
+      break;
+  }
+  msg.push(b);
+});
+var buf = Buffer.concat(msg);
+console.log(buf.toString('utf8'));
