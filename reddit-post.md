@@ -263,12 +263,12 @@ QR code out of it (where 0 is white and 1 is black).
     1111111011010001011100101100011001111
 
 Now using the bundled tool `binary-to-qr` we can get a
-[legible QR code](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/terminal-qr.png)
+[legible QR code](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/terminal-qr.png)
 on the terminal, or we can put it in the
 [Binary to QR Code converter](https://bahamas10.github.io/binary-to-qrcode/) I
 made it specifically for this ARG.
 
-[Generated QR Code](https://github.com/bahamas10/sombra/blob/dave-1471116722/01-dev-update-video/assets/qr.png)
+[Generated QR Code](https://raw.githubusercontent.com/bahamas10/sombra/dave-1471116722/01-dev-update-video/assets/qr.png)
 
 #### Scan QR code
 
