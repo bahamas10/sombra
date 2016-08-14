@@ -148,10 +148,10 @@ https://www.youtube.com/watch?v=evghkilg2eQ
 At the very end of the video, there flash 4 distinct frames that
 flash and look meaningless at first.  In order of appearance:
 
-- [Frame 1](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-1.png)
-- [Frame 2](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-2.png)
-- [Frame 3](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-3.png)
-- [Frame 4](https://github.com/bahamas10/sombra/blob/master/01-dev-update-video/assets/ana-frame-4.png)
+- [Frame 1](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-frame-1.png)
+- [Frame 2](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-frame-2.png)
+- [Frame 3](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-frame-3.png)
+- [Frame 4](https://raw.githubusercontent.com/bahamas10/sombra/master/01-dev-update-video/assets/ana-frame-4.png)
 
 These frames were extracted from the video by downloading the original 1080p
 video from YouTube, and then running the following command to extract all frames
@@ -427,7 +427,7 @@ https://blzgdapipro-a.akamaihd.net/media/screenshot/5552E494-78B3-4CE9-ACF6-EF82
 #### Extracting the hidden data
 
 The original image is a
-[Screenshot of Volskaya](https://github.com/bahamas10/sombra/blob/master/04-mystery-achievement/assets/Volskaya-screenshot-004.jpg?raw=true)
+[Screenshot of Volskaya](https://raw.githubusercontent.com/bahamas10/sombra/master/04-mystery-achievement/assets/Volskaya-screenshot-004.jpg)
 from the Overwatch media page, much like the original Dorado data mosh.
 
 Using the same `diff-mosh` tool, we can extract the data:
