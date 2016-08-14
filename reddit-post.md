@@ -514,3 +514,13 @@ This is where we are now, we have:
 I realize there are a lot of technical details in this post, but hopefully it
 can help clear up some information, or at least show that all the clues in this
 post have been successfully reproduced and verified.
+
+Edits
+-----
+
+### 1. Vigenere Cipher Code mistake
+
+Thanks to [/u/grimmlingur](https://www.reddit.com/user/grimmlingur) in the comments for noticing
+my Vigenere output was incorrect - there was a bug in my code that I fixed on a different computer
+but didn't commit to the repository with handling upper case letters.  The
+[commit is here](https://github.com/bahamas10/sombra/commit/1228cb257897e5a7f3b6bae74b032e57a8c932e8).
