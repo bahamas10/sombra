@@ -11,6 +11,7 @@ var fs = require('fs');
 
 var hex = fs.readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 
+
 function h2b(h) {
   return parseInt(h, '16').toString(2);
 }
@@ -23,46 +24,66 @@ function lpad(s, i, c) {
 
 function colorize(s) {
   return s
-    .replace(/1/g, '\x1b[47m  \x1b[0m')
-    .replace(/0/g, '  ');
+    .replace(/0/g, '\x1b[47m  \x1b[0m')
+    .replace(/1/g, '\x1b[40m  \x1b[0m');
 }
 
 var bin = [];
+// loop each line of hex
 hex.forEach(function (line) {
-  line.split('-').forEach(function(h, i) {
-    var b = lpad(h2b(h), 13, '0');
+  // split on hyphens
+  var spl = line.split('-');
+
+  spl.forEach(function(h, i) {
+    // convert each hex grouping to binary,
+    // pad the left with 0's (16 is max possible representation)
+    var b = lpad(h2b(h), 16, '0');
+
     bin.push(b);
   });
 });
 
 var newlines = [];
-for (var i = 0; i < 3; i++) {
-  for (var j = 0; j < 12; j++) {
-    newlines.push(bin[(i*32) + j] + bin[(i*32) + j + 12] + bin [(i*32)+j+12+12]);
+var columns = 3;
+// qr code is broken into a 3x3 grid, not sure how we know this
+for (var i = 0; i < columns; i++) {
+
+  // this all works but i can't say why
+  //
+  // i think the 12 and 13 magic numbers have something to do
+  // with the original hex strings.  the first 6 hex strings
+  // have 12 numbers but the last 3 have 13.
+  var max;
+  switch (i) {
+    case 0: max = 12; break;
+    case 1: max = 12; break;
+    case 2: max = 13; break;
   }
+  for (var j = 0; j < max; j++) {
+    var line = [
+      bin[(i * 12 * columns) + j + (max * 0)],
+      //'|',
+      bin[(i * 12 * columns) + j + (max * 1)],
+      //'|',
+      bin[(i * 12 * columns) + j + (max * 2)]
+    ];
+
+    // the first 2 columns get trimmed to 12
+    // while the 3rd gets trimmed to 13
+    while (line[0].length > 12)
+      line[0] = line[0].substr(1);
+    while (line[1].length > 12)
+      line[1] = line[1].substr(1);
+    while (line[2].length > 13)
+      line[2] = line[2].substr(1);
+
+    newlines.push(line.join(''));
+  }
+  //newlines.push(new Array(38*2).join('-'));
 }
 
-console.log(colorize(newlines.join('\n')));
-
-return;
-
-var col = 3;
-
-var n = Math.floor(foo.length / col);
-var newlines = [];
-
-foo.forEach(function (line, i) {
-  var key = Math.floor(i / n);
-  newlines[key] = newlines[key] || [];
-  newlines[key].push(line);
-});
-
-for (var i = 0; i < newlines[0].length; i++) {
-  var line = [];
-  for (var j = 0; j < n; j++) {
-    var l = newlines[j];
-    if (l)
-      line.push(l[i]);
-  }
-  console.log(colorize(line.join('')));
-}
+var code = newlines.join('\n');
+console.log('-binary qr code-');
+console.log(code);
+console.log('-colorized-');
+console.log(colorize(code));
