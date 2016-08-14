@@ -526,3 +526,9 @@ Thanks to [/u/grimmlingur](https://www.reddit.com/user/grimmlingur) in the comme
 my Vigenere output was incorrect - there was a bug in my code that I fixed on a different computer
 but didn't commit to the repository with handling upper case letters.  The
 [commit is here](https://github.com/bahamas10/sombra/commit/1228cb257897e5a7f3b6bae74b032e57a8c932e8).
+
+### 2. Hex/Xor Cipher Code mistake
+
+Thanks to [/u/Nodja](https://www.reddit.com/user/Nodja) in the comments for 1. explaining text encoding
+and 2. pointing out my bug with ascii vs utf-8. The
+[commit is here](https://github.com/bahamas10/sombra/commit/add13199c8ecbc361e3acccfb54295b47f6c1b67).
