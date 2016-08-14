@@ -40,6 +40,8 @@ the steps taken to solve the clues given.
 Clues
 -----
 
+---
+
 ### 1. [Ana Origin Video](https://github.com/bahamas10/sombra/tree/master/00-ana-origin-video)
 
 - Status: Solved / Verified

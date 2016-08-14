@@ -8,6 +8,12 @@ The goal here is to verify ALL clues found in the ARG in such a way that:
 1. All conclusions are reproducible and verifiable by others
 2. All tools used are open source or freely accessible
 
+Reddit Post
+-----------
+
+View the [Post on Reddit], as well as the [Raw Markdown](reddit-post.md)
+of the post.
+
 Clues
 -----
 
