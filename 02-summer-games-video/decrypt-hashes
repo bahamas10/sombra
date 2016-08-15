@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+/**
+ * Try to decrypt base64 hashes supplied over stdin separated
+ * by new lines
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 15, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+var spawnSync = require('child_process').spawnSync;
+
+var hashesFile = process.argv[2];
+var ciphersFile = process.argv[3];
+var password = process.argv[4];
+
+var debug = function () {};
+if (process.argv[5])
+  debug = console.error;
+
+if (!hashesFile || !ciphersFile || !password) {
+  console.error('Usage: decrypt-hashes <hashes.txt> <ciphers.txt> <passphrase> [debug]');
+  process.exit(1);
+}
+
+var hashes = fs.readFileSync(hashesFile, 'utf8').trim().split('\n');
+var ciphers = fs.readFileSync(ciphersFile, 'utf8').trim().split('\n');
+
+function printable(s) {
+  return /^[\x00-\xFF]*$/.test(s);
+}
+
+function decrypt(hash, password, cipher) {
+  var args = [
+    cipher,
+    '-d',
+    '-a',
+    '-k',
+    password
+  ];
+
+  var opts = {
+    input: hash + '\n',
+    encoding: 'utf8'
+  };
+
+  return spawnSync('openssl', args, opts);
+}
+
+hashes.forEach(function (hash, i) {
+  ciphers.forEach(function (cipher) {
+    debug('hash %d, cipher %s: %s', i, cipher, hash);
+    var o = decrypt(hash, password, cipher);
+
+    if (o.status !== 0 || o.stderr) {
+      debug('failed (%d): %s', o.status, o.stderr);
+      return;
+    }
+
+    debug('output: %s', o.stdout);
+    if (printable(o.stdout))
+      console.log('%s %s %s', cipher, hash, o.stdout);
+  });
+});
