@@ -16,28 +16,28 @@ echo skull without whitespace and newlines
 cat skull.txt | tr -d ' ' | tr -d '\n'; echo
 hr
 
-echo skull with SOMBR@ replaced with spaces
-cat skull.txt | tr SOMBR@ '     '
+echo skull with SOMBr@ replaced with spaces
+cat skull.txt | tr SOMBr@ '     '
 hr
 
-echo skull with SOMBR@ removed
-cat skull.txt | tr -d SOMBR@
+echo skull with SOMBr@ removed
+cat skull.txt | tr -d SOMBr@
 hr
 
-echo skull without white spaces or SOMBR@
-cat skull.txt | tr -d ' ' | tr -d SOMBR@
+echo skull without white spaces or SOMBr@
+cat skull.txt | tr -d ' ' | tr -d SOMBr@
 hr
 
-echo skull without whitespace, newlines, or SOMBR@
-cat skull.txt | tr -d ' ' | tr -d '\n' | tr -d SOMBR@; echo
+echo skull without whitespace, newlines, or SOMBr@
+cat skull.txt | tr -d ' ' | tr -d '\n' | tr -d SOMBr@; echo
 hr
 
-echo skull without whitespace, newlines, SOMBR@, or non-alphanumeric characters
-cat skull.txt | tr -d ' ' | tr -d '\n' | tr -d SOMBR@ | tr -cd '[[:alpha:]]'; echo
+echo skull without whitespace, newlines, SOMBr@, or non-alphanumeric characters
+cat skull.txt | tr -d ' ' | tr -d '\n' | tr -d SOMBr@ | tr -cd '[[:alpha:]]'; echo
 hr
 
-echo skull without SOMBR@ removed
-cat skull.txt | sed -e 's/[^SOMBR@]/ /g'
+echo skull without SOMBr@ removed
+cat skull.txt | sed -e 's/[^SOMBr@]/ /g'
 hr
 
 echo frequency count of unique letters
