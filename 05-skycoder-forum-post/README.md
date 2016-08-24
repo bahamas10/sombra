@@ -59,7 +59,8 @@ After a couple a seconds, the page completely glitches out a code is seen:
 
 The code is encoded in base64 (the `==` at the end is a dead giveaway here).  Decoded, we see:
 
-    $ cat transmission.txt | base64 -d
+    $ base64 -d transmission.txt > decoded.txt
+    $ cat decoded.txt
                           :PBèBk:
                       ,jBà@B@B@B@BBL.
                    7GñBìBïBMMMMMB@B@B@Nr
@@ -85,6 +86,9 @@ The code is encoded in base64 (the `==` at the end is a dead giveaway here).  De
                    :0 r@B@  B@@ .@B@: P:
                        vMB :@B@ :BO7
                            ,B@B
+
+Which looks almost identical to the original ascii skull found in the [Mystery
+Achievement](../04-mystery-achievement).
 
 References
 ----------

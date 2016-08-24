@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+/**
+ * basic XOR cipher for utf8 text
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 23, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var xor = +process.argv[2] || 23;
+
+var input = fs.readFileSync('/dev/stdin', 'utf8').trim();
+
+var msg = [];
+for (var i = 0; i < input.length; i++) {
+  var c = input[i];
+  var b = new Buffer(1);
+
+  /*
+  switch (c) {
+    case ' ':
+    case '.':
+      // don't XOR spaces or periods
+      b[0] = h;
+      break;
+    default:
+      b[0] = h ^ xor;
+      break;
+  }
+  */
+  b[0] = c ^ xor;
+  msg.push(b);
+}
+
+var buf = Buffer.concat(msg);
+console.log(buf);
+console.log(buf.toString('utf8'));
