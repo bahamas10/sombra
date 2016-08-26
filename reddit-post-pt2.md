@@ -370,3 +370,12 @@ References
 - http://us.battle.net/forums/en/overwatch/topic/20748794686
 - http://pastebin.com/SsEiPB4s (seriously, this was a huge help, good job everyone)
 
+Edits
+-----
+
+### 1. Skull non-printable wonkiness on reddit
+
+The new skull was showing up strangely on reddit because the non-printable characters
+were being stripped.  I've modified it to show "?" characters, as well as included
+a screenshot of my terminal to better show it.  The
+[commit is here](https://github.com/bahamas10/sombra/commit/6e363fe0d45a3c010f7d555f6ffb90a137351e11).
