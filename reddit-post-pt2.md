@@ -72,36 +72,40 @@ The code is encoded in base64 (the `==` at the end is a dead giveaway here).  De
 
     $ base64 -d transmission.txt > decoded.txt
     $ cat decoded.txt
-                          :PBBk:
-                      ,jB@B@B@B@BBL.
-                   7GBBBMMMMMB@B@B@Nr
-               :kBBMMOMOMOMOMMMMBB@B1,
-           :5BBBBBMMOMOMOMOMOMOMMnBnB@BBu.
-        70nBBBBXBBOMOMOMOMOMOMMBMPBBB@B@B@Nr
-      GBJ iBB  OBMOMOMOMOMOMOM2  BB@B. EB@B@S
-      BMGJBU.  iSuBOMOMOMOMOMOMMOU1:  .kBLMMB
-      BMMBB       7BBMMOMOMOMOMOBB:       BBMMB
-      BB         7@MMOMOMOMM@B@:         @@B@B@
-      OLB.          BNBMMOMOMMBEB          rBjMB
-      @  @           M  OBOMOMM@q  M          .@  @@
-      OvB           B:uMMOMOMMBJiB          .BvM@B
-      BBJ         0BMMOMOMOMBB@u         q@@@B@
-      BMBBv       GBMMMMMMMMMMMBB5       FBMM@B
-      BBMBPNi   LMEBOMMMMBMMOMMBZM7   rEqBMBB
-      BBM  BmBB  qBMOMBBBBMOMBL  B@B@B  @B@B@M
-       JmPBBBB7GOMBB.   ,@MMM@qLB@B@@@BqB@BBv
-          iGB,i0MBnMMOE  :  M@OMM@@@B@Pii@@N:
-             .   BMBMMM@B@B@B@MMM@@@M@B
-                 @B@B.i@MBB@B@B@@BM@::B@B@
-                 B@@@ .B@B.:@B@ :B@B  @B@O
-                   :0 r@B@  B@@ .@B@: P:
-                       vMB :@B@ :BO7
-                           ,B@B
+                              :PB?Bk:
+                          ,jB?@B@B@B@BBL.
+                       7G?B?B?BMMMMMB@B@B@Nr
+                   :kB?B???MMOMOMOMOMMMM?B?B@B1,
+               :5?B?B?B?BBMMOMOMOMOMOMOMM??nBnB@BBu.
+            70n??B?B?B?BXBBOMOMOMOMOMOMMBMPB?B?B@B@B@Nr
+          G???BJ iB?B??  OBMOMOMOMOMOMOM?2  B?B@B. EB@B@S
+          ??BM?GJBU.  iSuB?OMOMOMOMOMOMM?OU1:  .kBLM?M?B?
+          B?MMB?B       7?BBMMOMOMOMOMOBB?:       B?BMM?B
+          ???B?B         7??@MMOMOMOMM@B@:         @@B@B@
+          ??OLB.          BNB?MMOMOMM?BEB          rBjM?B
+          ?@  @           M  OBOMOMM@q  M          .@  @@
+          ??OvB           B:u?MMOMOMMBJiB          .BvM@B
+          ?B?B?J         0?B?MMOMOMOMB?B@u         q@@@B@
+          B?MBB?v       G??BMMMMMMMMMMMBB?5       F?BMM@B
+          ?BBMBPNi   LMEB?OMMMM?B?MMOMM?BZM7   rEqB?MBB?
+          B???BM  BmB?B  qBMOMB?B?B?BMOMBL  B@B@B  @B@B@M
+           J?m??PB?B?B?B7G?OMBB.   ,@MMM@qLB@B@@@BqB@BBv
+              iGB?,i0?M?BnMMO?E  :  M@OMM@@@B@Pii@@N:
+                 .   B?M?B?MMM@B@B@B@MMM@@@M@B
+                     @B@B.i@MBB@B@B@@BM@::B@B@
+                     B@@@ .B@B.:@B@ :B@B  @B@O
+                       :0 r@B@  B@@ .@B@: P:
+                           vMB :@B@ :BO7
+                               ,B@B
+
 
 Which looks almost identical to the original ascii skull found in the
 [Mystery Achievement](https://github.com/bahamas10/sombra/blob/master/04-mystery-achievement).
-Notice that what may look like `?` characters are actually unprintable
-characters that have different numerical values.
+
+Note: What may look like `?` characters are actually unprintable
+characters that have different numerical values, see
+[this screenshot](https://raw.githubusercontent.com/bahamas10/sombra/master/05-skycoder-forum-post/assets/skull-unprintable.png)
+for a view of the skull on the terminal.
 
 Since we have 2 skulls now: the original and this new moshed one, let's
 copy them to easy to use files: `skull-1.txt` and `skull-2.txt`.
@@ -118,11 +122,11 @@ and the convert it back to text.
 
 For example, the first couple differences are illustrated below:
 
-    character 29: skull-1 64 = @ / skull-2 143 = 
+    character 29: skull-1 64 = @ / skull-2 143 = [8f]
     143 - 64 = 79 = "O"
-    character 59: skull-1 64 = @ ? skull-2 136 = 
+    character 59: skull-1 64 = @ ? skull-2 136 = [88]
     136 - 64 = 72 = "H"
-    character 93: skull-1 64 = @ ? skull-2 150 = 
+    character 93: skull-1 64 = @ ? skull-2 150 = [96]
     150 - 64 = 86 = "V"
 
 Doing this for both skulls, we get:
