@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+/**
+ * basic caeser cipher for utf8 text
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 23, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var num = +process.argv[2] || 23;
+
+var input = fs.readFileSync('/dev/stdin', 'utf8').trim();
+
+var output = [];
+for (var i = 0; i < input.length; i++) {
+  var c = input[i];
+  var code = c.charCodeAt(0);
+
+  if ((code >= 65) && (code <= 90))
+    c = String.fromCharCode(((code - 65 + num) % 26) + 65);
+  else if ((code >= 97) && (code <= 122))
+    c = String.fromCharCode(((code - 97 + num) % 26) + 97);
+
+  output.push(c);
+}
+
+console.log(output.join(''));

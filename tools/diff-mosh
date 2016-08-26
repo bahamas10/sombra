@@ -15,8 +15,18 @@ function usage() {
   ].join('\n');
 }
 
-var original = process.argv[2];
-var moshed = process.argv[3];
+var args = process.argv.slice(2);
+
+var originalOnly = false;
+switch (args[0]) {
+  case '-o':
+    originalOnly = true;
+    args.shift();
+    break;
+}
+
+var original = args[0];
+var moshed = args[1];
 
 if (!original || !moshed) {
   console.error(usage());
@@ -44,6 +54,10 @@ for (var i = 0; i < len; i++) {
   }
 }
 
-console.log('%d differences', originalDiff.length);
-console.log('Original Diff: %s', originalDiff.join(''));
-console.log('Moshed Diff: %s', moshedDiff.join(''));
+if (originalOnly) {
+  console.log(originalDiff.join(''));
+} else {
+  console.log('%d differences', originalDiff.length);
+  console.log('Original Diff: %s', originalDiff.join(''));
+  console.log('Moshed Diff: %s', moshedDiff.join(''));
+}

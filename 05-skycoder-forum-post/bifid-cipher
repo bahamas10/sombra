@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+/**
+ * bifid cipher solver
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 25, 2016
+ * License: MIT
+ */
+
+var assert = require('assert');
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8');
+
+var code = process.argv[2];
+
+var square = input.trim().split('\n').map(function (line) {
+  return line.split(' ');
+});
+
+var newcode = [];
+code.split('').forEach(function (c) {
+  // find the character in the map
+  var found = false
+  for (var row = 0; !found && row < square.length; row++) {
+    for (var col = 0; !found && col < square[row].length; col++) {
+      if (square[row][col] === c) {
+        found = true;
+        newcode.push(row);
+        newcode.push(col);
+      }
+    }
+  }
+
+  // if we didn't find the character, something is broken
+  if (!found)
+    throw new Error('character not found in square: ' + c);
+});
+
+var output = [];
+var half = newcode.length / 2;
+for (var i = 0; i < half; i++) {
+  var row = newcode[i];
+  var col = newcode[half+i];
+  output.push(square[row][col]);
+}
+console.log(output.join(''));

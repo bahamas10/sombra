@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+/**
+ * custom diff checking tool
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 23, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+function usage() {
+  return [
+    'Usage: diff <original-file> <moshed-file>'
+  ].join('\n');
+}
+
+var args = process.argv.slice(2);
+
+var original = args[0];
+var moshed = args[1];
+
+if (!original || !moshed) {
+  console.error(usage());
+  process.exit(1);
+}
+
+var originalData = fs.readFileSync(original);
+var moshedData = fs.readFileSync(moshed);
+
+if (originalData.length !== moshedData.length) {
+  console.error('original data not the same length as moshed data!');
+  console.error('original: %d', originalData.length);
+  console.error('moshed: %d', moshedData.length);
+}
+
+var len = Math.min(originalData.length, moshedData.length);
+
+var d = [];
+for (var i = 0; i < len; i++) {
+  if (originalData[i] !== moshedData[i]) {
+    d.push(String.fromCharCode(moshedData[i] - originalData[i]));
+  }
+}
+console.log(d.join(''));
