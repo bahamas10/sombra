@@ -287,7 +287,7 @@ and
 
 ---
 
-Now here's the fun part:
+Now here's the fun part (this series of clue had multiple "fun parts"!):
 
 The timestamp looking blocks are actually coordinates to be used with the ASCII
 skulls given to us.  Given the form `AA:BB:CC`, `AA` is the number of skull (so
