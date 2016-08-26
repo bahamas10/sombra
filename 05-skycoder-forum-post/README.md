@@ -93,6 +93,12 @@ Which looks almost identical to the original ascii skull found in the [Mystery
 Achievement](../04-mystery-achievement).  Notice that what may look like `?` characters
 are actually unprintable characters that have different numerical values.
 
+Since we have 2 skulls now: the original and this new moshed one, let's
+copy them to easy to use files: `skull-1.txt` and `skull-2.txt`.
+
+    $ cp ../04-mystery-achievement/skull/skull.txt skull-1.txt
+    $ cp decoded.txt skull-2.txt
+
 ### Data Mosh Difference
 
 Here's the fun part - the text was data moshed in a similar fashion to the screenshots
@@ -100,14 +106,24 @@ we've seen before.  However, it's not enough to extract the different characters
 also substract the numerical value of the original character from the moshed character,
 and the convert it back to text.
 
-Doing this, we get
+For example, the first couple differences are illustrated below:
 
-    $ ./diff ../04-mystery-achievement/skull/skull.txt decoded.txt
+    character 29: skull-1 64 = @ / skull-2 143 = è
+    143 - 64 = 79 = "O"
+    character 59: skull-1 64 = @ ? skull-2 136 = à
+    136 - 64 = 72 = "H"
+    character 93: skull-1 64 = @ ? skull-2 150 = ñ
+    150 - 64 = 86 = "V"
+
+We can see the first three characters are "OHV", doing this for the rest we see:
+
+    $ ./diff skull-1.txt skull-2.txt
     OHVSURPHWLXQMXHJR...FUHRTXHXVWHGHVORVGHWHFWLYHVGHMXHJRVOROODPDULDQXQWUDLOKHDG?EOCJGDXVD-DPEDV-FDODYHUDV.KWPO
 
 ### Caesar Cipher
 
-With this output, we can pass it through a Caesar Cipher with the constant 23 to
+With this output, we can pass it through a [Caesar
+Cipher](https://en.wikipedia.org/wiki/Caesar_cipher) with the constant 23 to
 extract the following:
 
     $ ./diff ../04-mystery-achievement/skull/skull.txt decoded.txt | ./caeser-cipher 23
