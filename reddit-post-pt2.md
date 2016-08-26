@@ -130,9 +130,9 @@ For example, the first couple differences are illustrated below:
 
     character 29: skull-1 64 = @ / skull-2 143 = [8f]
     143 - 64 = 79 = "O"
-    character 59: skull-1 64 = @ ? skull-2 136 = [88]
+    character 59: skull-1 64 = @ / skull-2 136 = [88]
     136 - 64 = 72 = "H"
-    character 93: skull-1 64 = @ ? skull-2 150 = [96]
+    character 93: skull-1 64 = @ / skull-2 150 = [96]
     150 - 64 = 86 = "V"
 
 Doing this for both skulls, we get:
