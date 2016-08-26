@@ -1,6 +1,9 @@
 Sombra Overwatch ARG
 ====================
 
+- Part 1
+- [Part 2](https://www.reddit.com/r/Overwatch/comments/4zpbs2/sombra_itt_i_explain_reproduce_and_verify_all/)
+
 I've been hanging out in the [Game Detectives](https://www.reddit.com/r/gamedetectives/)
 Discord for a while now, and have been keeping up pretty closely with
 all of the latest developments.  The [Sombra Game Detectives
