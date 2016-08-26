@@ -3,9 +3,8 @@ I've decided to make a follow up to go over all of the latest clues we have.  Li
 I'll try my best to explain, reproduce, and verify all solutions the community has discovered
 this far.
 
-All code and assets referenced in this post can be found on my GitHub Sombra repository:
-
-https://github.com/bahamas10/sombra/tree/master/05-skycoder-forum-post
+All code and assets referenced in this post can be found in my [GitHub Sombra repository]
+(https://github.com/bahamas10/sombra/tree/master/05-skycoder-forum-post)
 
 # [Skycoder Forum Post](https://github.com/bahamas10/sombra/tree/master/05-skycoder-forum-post)
 
