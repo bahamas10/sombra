@@ -12,7 +12,7 @@ Reddit Post
 -----------
 
 - [Part 1](https://www.reddit.com/r/Overwatch/comments/4xpdly/sombra_itt_i_explain_reproduce_and_verify_all/)
-- [Part 2]()
+- [Part 2](https://www.reddit.com/r/Overwatch/comments/4zpbs2/sombra_itt_i_explain_reproduce_and_verify_all/)
 
 Clues
 -----
