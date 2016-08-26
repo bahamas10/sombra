@@ -203,10 +203,8 @@ the heartrate ping animation.  Looking at it in order we can see the message
 
 ### Moment in Crime
 
-The clue is most likely a reference to this video which introduced Junkrat and
-Roadhog before Overwatch was released.
-
-https://www.youtube.com/watch?v=l5kTATxt7bE
+The clue is most likely a reference to [this YouTube video](https://www.youtube.com/watch?v=l5kTATxt7bE)
+which introduced Junkrat and Roadhog before Overwatch was released.
 
 #### Website
 
