@@ -332,6 +332,17 @@ Which is leet-speak, translated:
 
 > Sombra Information is power Sombra
 
+Conclusion
+----------
+
+There may be more information in the video to extract - I'm not sure if `momentincrime`
+was the only clue we were meant to find.
+
+Questions
+
+- We already have the key? is that for the tracer trail?
+- What is that percentage leading up to on the website?
+
 References
 ----------
 
