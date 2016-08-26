@@ -21,9 +21,9 @@ hinting at being the 23rd hero).
 
 The post text data reads:
 
->  "la que tiene la información; tiene el poder"
+>  "la que tiene la informacion; tiene el poder"
 
-Translated is
+Translated
 
 > She who has the information; has the power
 
@@ -33,7 +33,7 @@ Video](../00-ana-origin-video).
 Transmission
 ------------
 
-After a couple a seconds, the page completely glitches out a code is seen:
+After a couple a seconds, the page completely glitches out and a code is seen:
 
     $ cat transmission.txt
     ICAgICAgICAgICAgICAgICAgICAgICAgICA6UEKPQms6CiAgICAgICAgICAgICAgICAgICAgICAsakKI
@@ -189,8 +189,8 @@ visible pings
 - [Frame "e"](assets/frames/usa-frame-301-e.png)
 
 In the screenshots I added in the letter that corresponds to each tick mark on
-the heartrate ping animation.  Looking at in order we can see the message
-`momentincrime`.
+the heartrate ping animation.  Looking at it in order we can see the message
+`"momentincrime"`.
 
 ### Moment in Crime
 
@@ -277,7 +277,7 @@ timestamps, and a passcode of some kind.
 
 and
 
-    $ cat code.txt:wq
+    $ cat code.txt
     j.7F57O,NLv:qj.7B:,1qv@B1j5ivB:,
 
 ---
@@ -288,11 +288,10 @@ The timestamp looking blocks are actually coordinates to be used with the ASCII
 skulls given to us.  Given the form `AA:BB:CC`, `AA` is the number of skull (so
 far only 01 or 02), `BB` is the row and `CC` is the column.
 
-There is an amazing illustration of this on Imgur (linked below)... our job is to verify it:
+NOTE: There is an amazing [illustration of this on imgur](http://i.imgur.com/ZgN2MVQ.png),
+our job is to verify it.
 
-http://i.imgur.com/ZgN2MVQ.png
-
-To do this, I wrote a program that will read the coordinates over stdin, and a
+To do this, I wrote a program that reads coordinates over stdin, and a
 variable number of input files (in our case, skulls) as arguments to
 construct a map.
 
