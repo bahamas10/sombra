@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+/**
+ * build a map for the Bifid cipher used by Sombra
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: August 25, 2016
+ * License: MIT
+ */
+
+var assert = require('assert');
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8');
+
+var args = process.argv.slice(2);
+
+var skulls = args.map(function (arg) {
+  return fs.readFileSync(arg, 'utf8').split('\n').map(function (line) {
+    return line.trim().split('');
+  });
+});
+
+var output = [];
+input.trim().split('\n').forEach(function (line) {
+  var newline = [];
+  line.split(' ').forEach(function (coordinate) {
+    var s = coordinate.split(':');
+    assert(s.length === 3);
+
+    var AA = parseInt(s[0], 10);
+    var BB = parseInt(s[1], 10);
+    var CC = parseInt(s[2], 10);
+
+    AA--; BB--; CC--; // programming language 0-index
+
+    var c = skulls[AA][BB][CC];
+
+    newline.push(c);
+  });
+  output.push(newline);
+});
+
+output.forEach(function (line) {
+  console.log(line.join(' '));
+});
