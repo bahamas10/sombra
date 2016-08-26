@@ -23,7 +23,7 @@ Clues
 3. [Summer Games Video](02-summer-games-video) - Unsolved
 4. [Dorado Screenshot](03-dorado-screenshot) - Solved / Verified
 5. [Mystery Achievement](04-mystery-achievement) - Not Known If Finished / Verified
-6. [Skycoder Forum Post](04-skycoder-forum-post)
+6. [Skycoder Forum Post](04-skycoder-forum-post) - In Progress / Verified
 
 References
 ----------
