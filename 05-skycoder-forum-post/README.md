@@ -126,7 +126,7 @@ With this output, we can pass it through a [Caesar
 Cipher](https://en.wikipedia.org/wiki/Caesar_cipher) with the constant 23 to
 extract the following:
 
-    $ ./diff ../04-mystery-achievement/skull/skull.txt decoded.txt | ./caeser-cipher 23
+    $ ./diff skull-1.txt skull-2.txt | ./caeser-cipher 23
     LESPROMETIUNJUEGO...CREOQUEUSTEDESLOSDETECTIVESDEJUEGOSLOLLAMARIANUNTRAILHEAD?BLZGDAUSA-AMBAS-CALAVERAS.HTML
 
 Adding spaces, and cleaning it up a bit we see:
