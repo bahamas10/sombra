@@ -154,7 +154,7 @@ https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.html
 
 The website above is a small wrapper around a static video file that plays on a loop:
 
-    $ curl https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.mp4
+    $ curl https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.html
     <html>
     <video width="800" height="600" autoplay loop>
       <source src="https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.mp4" type="video/mp4" />
