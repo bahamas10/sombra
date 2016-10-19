@@ -9,7 +9,7 @@
 
 var fs = require('fs');
 
-var passphrase = process.argv[2];
+var passphrase = process.argv[2].replace(/[^a-zA-Z]/g, '');
 
 var input = fs.readFileSync('/dev/stdin', 'utf8').trim();
 
