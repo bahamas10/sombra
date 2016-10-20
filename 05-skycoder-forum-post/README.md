@@ -126,7 +126,7 @@ With this output, we can pass it through a [Caesar
 Cipher](https://en.wikipedia.org/wiki/Caesar_cipher) with the constant 23 to
 extract the following:
 
-    $ ./diff ../04-mystery-achievement/skull/skull.txt decoded.txt | ./caeser-cipher 23
+    $ ./diff skull-1.txt skull-2.txt | ./caeser-cipher 23
     LESPROMETIUNJUEGO...CREOQUEUSTEDESLOSDETECTIVESDEJUEGOSLOLLAMARIANUNTRAILHEAD?BLZGDAUSA-AMBAS-CALAVERAS.HTML
 
 Adding spaces, and cleaning it up a bit we see:
@@ -154,7 +154,7 @@ https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.html
 
 The website above is a small wrapper around a static video file that plays on a loop:
 
-    $ curl https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.mp4
+    $ curl https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.html
     <html>
     <video width="800" height="600" autoplay loop>
       <source src="https://blzgdapipro-a.akamaihd.net/media/screenshot/usa-ambas-calaveras.mp4" type="video/mp4" />
