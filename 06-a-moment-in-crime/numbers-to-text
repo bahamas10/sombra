@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+/**
+ * convert numbers to text
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: October 19, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8').trim();
+
+var b = [];
+input.split(' ').forEach(function (c) {
+  if (c === 'x')
+    return b.push(' ');
+  n = parseInt(c, 10);
+  b.push(String.fromCharCode(n + 64));
+});
+
+console.log(b.join(''));

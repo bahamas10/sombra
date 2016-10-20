@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+/**
+ * basic columnar transposition decoding program
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: October 20, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8').split('\n').join('');
+
+var key = process.argv[2].split('').map(function (c) {
+  return parseInt(c, 10);
+});
+
+// length of data to write per column
+var len = Math.ceil(input.length / key.length);
+// any column greater than this amount should get `len - 1` data
+// written to it
+var full = input.length % key.length;
+// the final grid of text constructed from the input
+var grid = [];
+// the current column we are on
+var col = 0;
+// the character index of the column we are on
+var j = 0;
+// i is the chacter index of the entire input
+for (var i = 0; i < input.length; i++) {
+  var max = len;
+
+  // if this is the case, the last character of this array should be blank
+  if (key[col] > full)
+    max--;
+  // we are starting a new column
+  if (j >= max) {
+    col++;
+    j = 0;
+  }
+
+  // push the character
+  var gridindex = key[col] - 1;
+  grid[gridindex] = grid[gridindex] || [];
+  grid[gridindex].push(input[i]);
+
+  j++;
+}
+
+// loop each grid and construct the final string to show
+var s = [];
+for (var i = 0; i < len; i++) {
+  for (var j = 0; j < grid.length; j++) {
+    s.push(grid[j][i]);
+  }
+}
+console.log(s.join(''));
