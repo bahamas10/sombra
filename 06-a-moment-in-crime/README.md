@@ -198,7 +198,40 @@ Login page: https://lumerico.mx/login
 The username is `GFlores` and the password is `g#fNwP5qJ` - it's common practice to separate
 username and password with a single `/` character.
 
-TODO
+There are a lot of emails to sift through, but the most important one seems to be this one:
+
+> De:Valeria Valderrama<VValderama@lumerico.mx>
+> Para:Gonzalo Flores<GFlores@lumerico.mx>
+> Asunto:Página de Guillermo
+>
+> Hola, Gonzo:
+> ¿Puedes ver el tráfico de https://lumerico.mx/president-bypass? Guillermo
+> debería ser el único accediendo desde su página de inicio privada, pero
+> parece que está teniendo mucho tráfico. Tal vez tengamos que escalar esto a
+> la señorita Jiménez, pero quiero estar segura de que es digno de su tiempo.
+>
+> Valeria Valderrama
+
+It basically says there is a page for the president to login
+
+Page: https://lumerico.mx/president-bypass
+
+When trying to load the page we get an Access Denied page (though, funny enough, the site actually returns
+a 200 OK and not a 403 error as you would expect).
+
+    $ curl -sI https://lumerico.mx/president-bypass | head -1
+    HTTP/1.1 200 OK
+
+Nothing important - just thought it was worth noting.  Looking in the source code
+there is a very interesting comment:
+
+    $ curl -sS https://lumerico.mx/president-bypass | grep -o '<!--[^>]*-->'
+    <!-- President Auth-Bypass Revision 1.02: /.git/ -->
+
+TODO:
+- .git dump
+- PHP auth code reverse engineer
+- president auth emails
 
 References
 ----------
