@@ -56,6 +56,8 @@ an Overwatch version number in the comments
 Overwatch Patch 10/19/2016
 --------------------------
 
+### Bastion Beeps
+
 A patch went out on Wednesday that made it so Bastion would start spewing out seemingly random
 beeps when in Dorado.
 
@@ -74,6 +76,8 @@ Decoding the beeps as morse code we have the following output:
 
 Bastion Morse Code
 ------------------
+
+### Vigenere Cipher
 
 The next step was to take this string of letters and convert it to something meaningful.
 
@@ -97,6 +101,8 @@ characters from the key and passthrough special characters from the input field.
 
 Lumerico's Website
 ------------------
+
+### Phone Recording
 
 Accessing the website we see a phone number at the bottom of the page
 
@@ -122,6 +128,8 @@ Now, running the result through a Caesar Cipher with the constant 23 we see:
 
     $ cat numbers.txt | ./numbers-to-text | ../05-skycoder-forum-post/caeser-cipher 23
     BYAXZ TAKECONTROL
+
+### Take Control
 
 Ignoring the first section for now (used later), we have `TAKECONTROL`.  This gets
 appended to the original URL which gives us http://lumerico.mx/TAKECONTROL
@@ -159,6 +167,8 @@ Stripping out HTML tags, we have just the raw code
 
 Take Control
 ------------
+
+### Columnar Transposition Cipher
 
 Using a [Columnar Transposition Cipher](https://www.staff.uni-mainz.de/pommeren/Cryptology/Classic/8_Transpos/Examples.html)
 with the numerical constant of `52413` (from the phone call before the static),
@@ -226,6 +236,8 @@ Login page: https://lumerico.mx/login
 The username is `GFlores` and the password is `g#fNwP5qJ` - it's common practice to separate
 username and password with a single `/` character.
 
+### Emails
+
 There are a lot of emails to sift through, but the most important one seems to be this one:
 
 > De:Valeria Valderrama<VValderama@lumerico.mx>
@@ -242,7 +254,6 @@ There are a lot of emails to sift through, but the most important one seems to b
 
 Translated
 
->
 > Hello, Gonzo: Can you see traffic https://lumerico.mx/president-bypass?
 > William should be the only page by pointing your private home, but seems to
 > be having a lot of traffic. We may have to escalate this to Miss Jimenez, but
@@ -251,6 +262,8 @@ Translated
 > Valeria Valderrama
 
 It basically says there is a page for the President to login
+
+### President Bypass Source Code Comment
 
 Page: https://lumerico.mx/president-bypass
 
@@ -271,6 +284,8 @@ is controlled by [Git](https://git-scm.com/) - source code revision control soft
 
 President Bypass Source Code
 ----------------------------
+
+### Hidden Git Repository
 
 Doing web requests for `git` style files reveals something interesting.
 
@@ -325,6 +340,8 @@ There are a couple things to note
 
 1. There is only 1 commit so the code was very easy to extract
 2. The `file corrupted` text seems to have been added manually (on purpose)
+
+### PHP code checked in
 
 The code files are in [PHP](https://secure.php.net/): PHP is a server-side
 language used commonly for web applications.  Because the code is executed on
@@ -382,6 +399,8 @@ Or in pesudo-code
     ord(result)
     dechex(result)
     base64_encode(result)
+
+### Reverse Engineering the Encryption
 
 To create the program
 [decrypt-password](https://github.com/bahamas10/sombra/blob/master/06-a-moment-in-crime/decrypt-password)
