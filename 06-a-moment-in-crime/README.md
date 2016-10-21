@@ -135,7 +135,8 @@ Take Control
 ------------
 
 Using a [Columnar Transposition Cipher](https://www.staff.uni-mainz.de/pommeren/Cryptology/Classic/8_Transpos/Examples.html)
-with the numerical constant of 52413 the above text can be decoded into Spanish.
+with the numerical constant of `52413` (from the phone call before the static),
+the above text can be decoded into Spanish.
 
     $ cat takecontrol.txt | ./columnar-decode 52413
     Losfelicitoporhaberllegadohastaaquí.Soloqueríasabersiestabanlistos.(Hey,esmuydifícilencontrarbuenaayudaúltimamente...deberíanveralgunosdelospayasitosqueestántrabajandoconmigo)Porahora,continuemosconelverdaderoreto:acabarconLumériCoysupresidenteGuillermoPortero.¿Y porqué?Porqueesunhombrecodicioso,corruptoyunladrónabominable.Suplandetraerenlíneaelmásgrandeyelmáspoderosoziguratel1denoviembrenoesnadamásqueunaartimaña,unelaboradoplandesignadoparaejerceraúnmásinfluenciasobrelagentedeMéxicoyengordarlosbolsillosdesuscompinches.¿Yquiénvaapagarporeso?Lagentecomúnycorriente,losmismosquesiemprequedanolvidados.HeempezadoamejorarmisprotocolosparaqueseanusadosparaderrumbarlainfraestructuradeLumériCoyLosMuertostambiénestánintentandolevantarseencontradelacorrupción.Mientrastanto,escarbenporelsitiodeLumériCoybusqueninformaciónquepodamosusarencontradelcabrón,mejoraún,encuentrensunombredeusuarioycontraseñaparaasegurarnosdequeciertosdetallesnomuyfavorablessobreelpresidentito...aparezcan...PudeencontrarelnombredeusuarioycontraseñadeunempleadodesoportedeLumériCo,empiecenporahí:GFlores/g#fNwP5qJ
@@ -190,8 +191,9 @@ Translated
 Lumerico Login
 --------------
 
-Now here's the awesome part - we can now login to the Lumerico website using
-the above username and password.
+This is where it gets fun - we can now login to the Lumerico website using
+the above username and password! Sombra's turning us into the hackers? Using us
+as her personal army?
 
 Login page: https://lumerico.mx/login
 
@@ -212,7 +214,17 @@ There are a lot of emails to sift through, but the most important one seems to b
 >
 > Valeria Valderrama
 
-It basically says there is a page for the president to login
+Translated
+
+>
+> Hello, Gonzo: Can you see traffic https://lumerico.mx/president-bypass?
+> William should be the only page by pointing your private home, but seems to
+> be having a lot of traffic. We may have to escalate this to Miss Jimenez, but
+> I want to be sure it's worth your time.
+>
+> Valeria Valderrama
+
+It basically says there is a page for the President to login
 
 Page: https://lumerico.mx/president-bypass
 
@@ -222,16 +234,184 @@ a 200 OK and not a 403 error as you would expect).
     $ curl -sI https://lumerico.mx/president-bypass | head -1
     HTTP/1.1 200 OK
 
-Nothing important - just thought it was worth noting.  Looking in the source code
+Not strictly interesting - just thought it was worth noting.  Looking in the source code
 there is a very interesting comment:
 
     $ curl -sS https://lumerico.mx/president-bypass | grep -o '<!--[^>]*-->'
     <!-- President Auth-Bypass Revision 1.02: /.git/ -->
 
-TODO:
-- .git dump
-- PHP auth code reverse engineer
-- president auth emails
+The `/.git/` line is giving is a hint that this `president-bypass` section of the website
+is controlled by [Git](https://git-scm.com/) - source code revision control software.
+
+President Bypass Source Code
+----------------------------
+
+Doing web requests for `git` style files reveals something interesting.
+
+    $ curl -sSI https://lumerico.mx/president-bypass/.git | head -1
+    HTTP/1.1 403 Forbidden
+    $ curl -sSI https://lumerico.mx/president-bypass/.git/HEAD | head -1
+    HTTP/1.1 200 OK
+    $ curl -sSI https://lumerico.mx/president-bypass/.git/config | head -1
+    HTTP/1.1 200 OK
+
+The directory listings on this webserver have been disabled (we get a 403 when
+hitting `./git` directly) but the files inside the repository seem to be accessible
+if you know the URLs.
+
+NOTE: `HEAD` and `config` are common file names for git repositories - I only know this
+because I've worked with `git` for source control almost exclusively for the last ~6 years.
+
+[GitDumper](https://github.com/internetwache/GitTools/tree/master/Dumper) was used
+by some on Reddit (can't find original link, sorry!) to pull as many files as they could
+to rebuild the git repository locally to find any interesting files.  I personally
+could not get `gitdumper.sh` to work because it made a lot of assumptions about the version
+of `grep` installed and how it was compiled.
+
+So instead, I wrote my own program in node based on GitDumper called
+[git-dump](https://github.com/bahamas10/node-git-dump) to do this.  Running it,
+we can rebuild the repository:
+
+    $ npm install -g git-dump
+    $ git dump https://lumerico.mx/president-bypass/.git president-bypass
+    ...
+    $ cd president-bypass
+    $ git log
+    commit 677d90499d571221e2ec71914e56aee35afa9340
+    Author: pedro <pedro@lumerico.mx>
+    Date:   Wed Oct 12 20:09:41 2016 -0400
+
+        president auth bypass
+
+        Signed-off-by: pedro <pedro@lumerico.mx>
+    $ git ls-files
+    class.authentication.php
+    class.president-bypass.php
+    login.php
+    style.css
+
+The full output is a bit long and can be found
+[here](https://gist.github.com/bahamas10/6d8d4855fcbcfa22e5ac915a9ef01e62).
+The 4 files found can also be seen formatted nicely
+[here](https://gist.github.com/bahamas10/fe6331b01e4ba6b5266248c6e06644e3).
+
+There are a couple things to note
+
+1. There is only 1 commit so the code was very easy to extract
+2. The `file corrupted` text seems to have been added manually (on purpose)
+
+The code files are in [PHP](https://secure.php.net/): PHP is a server-side
+language used commonly for web applications.  Because the code is executed on
+the server, it is impossible for us to know (without the source code) what
+exactly is happening.  However, now that we have the President's encrypted
+password in
+[class.president-bypass.php](https://gist.github.com/bahamas10/fe6331b01e4ba6b5266248c6e06644e3#file-class-president-bypass-php):
+
+``` php
+private $encrypted_password = "?MzY:MTI5:?AzY:OWM?:?EDO:ZGU?:jVTM:MTJm:2ITM:MTUw:?QjY:OWY?:?kTO:MTQx:?MzY";
+```
+
+as well as the encrypt function in
+[class.authentication.php](https://gist.github.com/bahamas10/fe6331b01e4ba6b5266248c6e06644e3#file-class-authentication-php):
+
+``` php
+public function encrypt($password) {
+    $passArray = str_split($password);
+    $encrypted = array();
+    foreach($passArray as $char) {
+        $salt = count($encrypted);
+        $char = base64_encode(dechex(ord($this->str_rot($char,($salt+3)))*3));
+        if($salt % 2 == 0) $char = strrev($char);
+        array_push($encrypted, $char);
+    }
+    $encrypted = implode(":", $encrypted);
+    $encrypted = str_replace("=", "?", $encrypted);
+    return $encrypted;
+}
+```
+
+We can reverse engineer it and create our own `decrypt` function to get the
+President's password!
+
+The President's Password
+------------------------
+
+Using the logic in `encrypt()`, we can take the President's encrypted password
+and decrypt it.  This line in the code basically has the meat of the encryption
+function:
+
+``` php
+$char = base64_encode(dechex(ord($this->str_rot($char,($salt+3)))*3));
+```
+
+Indenting it, we get
+
+``` php
+base64_encode(
+  dechex(
+    ord(
+     $this->str_rot(
+       $char, ($salt + 3)
+     )
+    ) * 3
+  )
+);
+```
+
+Or in pesudo-code
+
+    str_rot($char, ($salt + 3)
+    ord(result)
+    dechex(result)
+    base64_encode(result)
+
+To create the program [decrypt-password](./decrypt-password) I had to reverse
+all of the functions used.  For example, `ord` (convert ascii to numerical
+value) required its compliment `chr` (convert number to ascii representation),
+`dechex` (convert decimal to hex) required its compliment `hexdec` (convert hex
+to decimal), `base64_encode` required `base64_decode`, and `str_rot` doesn't
+have a compliment in code.  To reverse a `rot-n` of a number you just use `26 -
+n`.  For example, a rot-2 can be undone with a rot-24.
+
+Writing all of that logic, the command line program can be used to decrypt the password:
+
+    $ ./decrypt-password '?MzY:MTI5:?AzY:OWM?:?EDO:ZGU?:jVTM:MTJm:2ITM:MTUw:?QjY:OWY?:?kTO:MTQx:?MzY'
+    Xy@4+Bkuqd<53uJ
+
+Using the username `GPortero` (based off the login in the PHP file) and this password, we
+can [login](https://lumerico.mx/email) and see the President's emails
+
+The President's Email
+---------------------
+
+After browsing the email for a bit, a new email came in from `#Mantenimiento<#Mantenimiento@lumerico.mx>`
+which translates to maintenance with the subject Buen Trabajo, or Good Job and signed with a skull image.
+
+> Veo que se han podido infiltrar en su correo.
+>
+> No se preocupen, él no puede ver este correo, lo he ocultado de su vista si
+> se conecta desde una de sus direcciones conocidas de IP.
+>
+> Necesito un poco más de tiempo para establecer el próximo grupo de potocolos.
+> Manténganse atentos a principios de la otra semana. Le echaré unos cuantos
+> trapitos sucios en sus correos para que se filtren al público
+> "accidentalmente". Ya veremos como reaccionan los medios de comunicación.
+
+Translated
+
+> I see you have been able to infiltrate in your mail.
+>
+> Do not worry, he can not see this email, I've hidden from view if you connect
+> from one of the known IP addresses.
+>
+> I need a little more time to set the next group of protocols. Stay tuned
+> early next week. I'll take a few dirty rags in their emails to be filtered to
+> the public "accidentally". We'll see how they react to the media.
+
+Conclusion
+----------
+
+It looks like we are waiting until next week for anything more!
 
 References
 ----------
