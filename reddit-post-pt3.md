@@ -75,7 +75,7 @@ Decoding the beeps as morse code we have the following output:
 Bastion Morse Code
 ------------------
 
-The next step is to take this string of letters and convert it to something meaningful.
+The next step was to take this string of letters and convert it to something meaningful.
 
 Like the [Mystery Achievement](https://github.com/bahamas10/sombra/tree/master/04-mystery-achievement), a [Vigenère
 cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) was used to encrypt
