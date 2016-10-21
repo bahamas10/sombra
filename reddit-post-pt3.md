@@ -77,10 +77,10 @@ Bastion Morse Code
 
 The next step is to take this string of letters and convert it to something meaningful.
 
-Like the [Mystery Achievement](../04-mystery-achievement), a [Vigenère
+Like the [Mystery Achievement](https://github.com/bahamas10/sombra/tree/master/04-mystery-achievement), a [Vigenère
 cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) was used to encrypt
 this data.  The key to the cipher is the last bit of data we found from the
-[Skycoder Forum Post](../05-skycoder-forum-post), `SOMBr@1NF:rM@7iON1SP0vvErrSOMBr@`.
+[Skycoder Forum Post](https://github.com/bahamas10/sombra/tree/master/05-skycoder-forum-post), `SOMBr@1NF:rM@7iON1SP0vvErrSOMBr@`.
 
     $ cat bastion.txt
     SQOFJFBNITIZWGDXSDO
@@ -383,13 +383,15 @@ Or in pesudo-code
     dechex(result)
     base64_encode(result)
 
-To create the program [decrypt-password](./decrypt-password) I had to reverse
-all of the functions used.  For example, `ord` (convert ascii to numerical
-value) required its compliment `chr` (convert number to ascii representation),
-`dechex` (convert decimal to hex) required its compliment `hexdec` (convert hex
-to decimal), `base64_encode` required `base64_decode`, and `str_rot` doesn't
-have a compliment in code.  To reverse a `rot-n` of a number you just use `26 -
-n`.  For example, a rot-2 can be undone with a rot-24.
+To create the program
+[decrypt-password](https://github.com/bahamas10/sombra/blob/master/06-a-moment-in-crime/decrypt-password)
+I had to reverse all of the functions used.  For example, `ord` (convert ascii
+to numerical value) required its compliment `chr` (convert number to ascii
+representation), `dechex` (convert decimal to hex) required its compliment
+`hexdec` (convert hex to decimal), `base64_encode` required `base64_decode`,
+and `str_rot` doesn't have a compliment in code.  To reverse a `rot-n` of a
+number you just use `26 - n`.  For example, a rot-2 can be undone with a
+rot-24.
 
 Writing all of that logic, the command line program can be used to decrypt the password:
 
