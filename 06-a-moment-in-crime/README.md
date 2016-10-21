@@ -69,6 +69,10 @@ Adding spaces and punctuation for readability we get
 
 > Access www.lumerico.mx
 
+Note: some Vigenere cipher algorithms online incorrectly handle special
+characters in the input or key - a proper cipher should strip special
+characters from the key and passthrough special characters from the input field.
+
 Lumerico's Website
 ------------------
 
