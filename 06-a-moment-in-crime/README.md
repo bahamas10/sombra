@@ -238,7 +238,7 @@ a 200 OK and not a 403 error as you would expect).
     $ curl -sI https://lumerico.mx/president-bypass | head -1
     HTTP/1.1 200 OK
 
-Not strictly interesting - just thought it was worth noting.  Looking in the source code
+Not strictly important - just thought it was worth noting.  Looking in the source code
 there is a very interesting comment:
 
     $ curl -sS https://lumerico.mx/president-bypass | grep -o '<!--[^>]*-->'
