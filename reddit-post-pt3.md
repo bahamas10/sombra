@@ -16,7 +16,8 @@ can be reproduced and verified by others.
 - Part 3
 
 All code and assets referenced in this post can be found in my [GitHub Sombra Repository]
-(https://github.com/bahamas10/sombra/tree/master/06-a-moment-in-crime)
+(https://github.com/bahamas10/sombra/tree/master/06-a-moment-in-crime) released for free
+under the [MIT License](https://opensource.org/licenses/MIT)
 
 # [A Moment In Crime](https://github.com/bahamas10/sombra/tree/master/06-a-moment-in-crime)
 
