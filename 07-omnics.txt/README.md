@@ -1,10 +1,10 @@
-A Moment In Crime
-=================
+Omnics.txt
+==========
 
 On Tuesday, October 25th, https://lumerico.mx/omnics.txt was updated to include Mayan text
 
-Omnics.txt
-----------
+Omnics.txt File
+---------------
 
 Pulling the file, we see
 
