@@ -112,7 +112,7 @@ n(".terminal").terminal(function(e, n) {
 ```
 
 From the source code it is apparent that the terminal is purposefully
-"disconnected", and perhaps be implemented at a later time.  As long as this is
+"disconnected", and may perhaps be implemented at a later time.  As long as this is
 the source code, the terminal will do nothing for us.
 
 Conclusion
