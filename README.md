@@ -25,6 +25,7 @@ Clues
 5. [Mystery Achievement](04-mystery-achievement) - Not Known If Finished / Verified
 6. [Skycoder Forum Post](05-skycoder-forum-post) - In Progress / Verified
 7. [A Moment In Crime](06-a-moment-in-crime) - Solved / Verified
+8. [Omnics.txt](07-omnics.txt) - Solved / Verified
 
 References
 ----------

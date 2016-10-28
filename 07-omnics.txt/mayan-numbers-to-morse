@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+/**
+ * Convert Mayan days to morse code based on
+ * https://en.wikipedia.org/wiki/Maya_numerals
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: October 28, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8');
+
+var map = {
+  '1': '.',
+  '2': '..',
+  '3': '...',
+  '4': '....',
+  '5': '-',
+  '6': '.-',
+  '7': '..-',
+  '8': '...-',
+  '9': '....-'
+};
+
+Object.keys(map).forEach(function (name) {
+  var num = map[name];
+  while (input.indexOf(name) > -1)
+    input = input.replace(name, num);
+});
+
+process.stdout.write(input);

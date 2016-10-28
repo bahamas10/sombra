@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+/**
+ * Convert mayan names to numbers based on
+ * https://en.wikipedia.org/wiki/Maya_calendar#Tzolk.27in
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: October 28, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8');
+
+var map = {
+  'Imix': 1,
+  'Ik': 2,
+  'Akbal': 3,
+  'Kan': 4,
+  'Chikchan': 5,
+  'Kimi': 6,
+  'Manik': 7,
+  'Lamat': 8,
+  'Muluk': 9,
+  'Ok': 10,
+  'Chuwen': 11,
+  'Eb': 12,
+  'Ben': 13,
+  'Ix': 14,
+  'Men': 15,
+  'Kib': 16,
+  'Kaban': 17,
+  'Etznab': 18,
+  'Kawak': 19,
+  'Ajaw': 20
+};
+
+Object.keys(map).forEach(function (name) {
+  var num = map[name];
+  while (input.indexOf(name) > -1)
+    input = input.replace(name, num);
+});
+
+process.stdout.write(input);

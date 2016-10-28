@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+/**
+ * Decode morse code
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: October 28, 2016
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var input = fs.readFileSync('/dev/stdin', 'utf8');
+
+var map = {
+  '.-': 'A',
+  '-...': 'B',
+  '-.-.': 'C',
+  '-..': 'D',
+  '.': 'E',
+  '..-.': 'F',
+  '--.': 'G',
+  '....': 'H',
+  '..': 'I',
+  '.---': 'J',
+  '-.-': 'K',
+  '.-..': 'L',
+  '--': 'M',
+  '-.': 'N',
+  '---': 'O',
+  '.--.': 'P',
+  '--.-': 'Q',
+  '.-.': 'R',
+  '...': 'S',
+  '-': 'T',
+  '..-': 'U',
+  '...-': 'V',
+  '.--': 'W',
+  '-..-': 'X',
+  '-.--': 'Y',
+  '--..': 'Z',
+  '-----': '0',
+  '.----': '1',
+  '..---': '2',
+  '...--': '3',
+  '....-': '4',
+  '.....': '5',
+  '-....': '6',
+  '--...': '7',
+  '---..': '8',
+  '----.': '9'
+};
+
+var output = [];
+
+input.split('\n').forEach(function (line) {
+  var newline = [];
+
+  line.split(' ').forEach(function (chunk) {
+    var c = map[chunk.trim()];
+    newline.push(c);
+  });
+
+  output.push(newline.join(' '));
+});
+
+process.stdout.write(output.join('\n'));
